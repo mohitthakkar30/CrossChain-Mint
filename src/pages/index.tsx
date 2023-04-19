@@ -73,7 +73,7 @@ export default function CallToActionWithAnnotation() {
   const [shmBalance, setShmBalance] = useState("0");
   const [mumbaiBalance, setMumbaiBalance] = useState("0");
   const [sepoliaBalance, setSepoliaBalance] = useState("0");
-  const address: any = useAccount();
+  const account: any = useAccount();
   const provider = useProvider();
 
   useEffect(() => {
@@ -92,7 +92,7 @@ export default function CallToActionWithAnnotation() {
       });
 
     const allNFTs = [];
-    const address = "0xA7a0796E99c46D0643f9266722244a30564754D9";
+    const address = account.address
     const chains = [EvmChain.SEPOLIA, EvmChain.MUMBAI,];
 
     for (const chain of chains) {
@@ -144,8 +144,8 @@ export default function CallToActionWithAnnotation() {
 
   const getNftBalanceShm = async () => {
     const contract = new ethers.Contract(contractAddress, abi, provider);
-    const res = await contract.balanceOf(address.address);
-    console.log("address.address", address.address);
+    const res = await contract.balanceOf(account.address);
+    console.log("address.address", account.address);
 
     console.log("Total NFT's for this contract - ", res.toString());
     setShmBalance(res.toString());
