@@ -23,7 +23,6 @@ import MyImage from "../components/MyImage";
 import myNft from "../../public/nft.jpeg";
 import { fetchSigner, getNetwork } from "@wagmi/core";
 import { ethers, Signer } from "ethers";
-import { Network, Alchemy } from "alchemy-sdk";
 import abi from "../abi/abi";
 import { useAccount, useProvider } from "wagmi";
 import NftCard from "../components/NftCard";
